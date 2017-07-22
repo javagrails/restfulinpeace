@@ -1,5 +1,6 @@
 package app.in.rest.controller;
 
+import app.in.rest.entity.Doctor;
 import app.in.rest.entity.Patient;
 import app.in.rest.exception.ResourceNotFoundException;
 import app.in.rest.service.DoctorPatientService;
@@ -16,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * @author M.M. SALEH (Salman)
