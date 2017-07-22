@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface DoctorPatientService {
 
-    Doctor getDoctor(Long doctorId);
+    Doctor getDoctor(Long doctorId, boolean isBuild);
 
     void saveDoctor(Doctor doctor);
 
