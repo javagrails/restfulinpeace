@@ -106,3 +106,35 @@ public class BootStrap implements InitializingBean {
         return String.valueOf(random_3_Char);
     }
 }
+
+
+/******************  URL MAPPINGS  ********************************/
+
+
+
+// Doctor Controller
+
+/*
+|   GET    | /doctors                                      | Action: list             |
+|   GET    | /doctors/${id}                                | Action: single           |
+|   POST   | /doctors                                      | Action: save             |
+|   PUT    | /doctors/${id}                                | Action: update           |
+|  DELETE  | /doctors/${id}                                | Action: delete           |
+*/
+
+
+
+// Patient Controller
+
+/*
+|   GET    | /doctors/${doctorId}/patients                 | Action: list            |
+|   GET    | /doctors/${doctorId}/patients/${id}           | Action: single          |
+|   POST   | /doctors/${doctorId}/patients                 | Action: save            |
+|   PUT    | /doctors/${doctorId}/patients/${id}           | Action: update          |
+|  DELETE  | /doctors/${doctorId}/patients/${id}           | Action: delete          |
+*/
+
+
+
+/******************  URL MAPPINGS  ********************************/
+

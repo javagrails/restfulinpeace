@@ -26,6 +26,8 @@ public interface PatientService {
 
     List<Patient> findAll();
 
+    boolean isPatientExist(Patient patient);
+
     // Operations
     @Transactional
     void save(Patient patient);

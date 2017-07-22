@@ -1,5 +1,10 @@
 package app.in.rest.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -20,6 +25,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "patient")
+//@JsonIgnoreProperties({"doctors"})
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Patient implements Serializable {
     private static final long serialVersionUID = 3L;
 
@@ -43,7 +50,8 @@ public class Patient implements Serializable {
     @Column(name = "city", nullable = true)
     private String city;
 
-    @ManyToMany(mappedBy = "patients", fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "patients", cascade = CascadeType.ALL)
+    //@JsonBackReference
     private Set<Doctor> doctors = new HashSet<Doctor>(0);;
 
 

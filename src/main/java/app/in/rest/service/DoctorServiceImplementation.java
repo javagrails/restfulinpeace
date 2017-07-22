@@ -5,6 +5,7 @@ import app.in.rest.entity.Patient;
 import app.in.rest.repository.DoctorRepository;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -17,6 +18,8 @@ import java.util.List;
  * @since Jul 20, 2017 22:53:53 PM
  */
 
+@Service
+@Transactional
 public class DoctorServiceImplementation implements DoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
@@ -36,6 +39,10 @@ public class DoctorServiceImplementation implements DoctorService {
         return doctorRepository.findAll();
     }
 
+    @Override
+    public boolean isDoctorExist(Doctor doctor) {
+        return findByName(doctor.getName()) != null;
+    }
 
     @Override
     @Transactional

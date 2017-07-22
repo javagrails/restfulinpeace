@@ -1,5 +1,7 @@
 package app.in.rest.entity;
 
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
@@ -22,6 +24,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "doctor")
+//@JsonIgnoreProperties({"patients"})
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Doctor implements Serializable {
     private static final long serialVersionUID = 2L;
 
@@ -46,7 +50,8 @@ public class Doctor implements Serializable {
     private double visitFee;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //@JsonManagedReference
     @JoinTable(name = "doctor_patient",
             joinColumns = @JoinColumn(name = "doctor_id", referencedColumnName = "id", nullable = false, updatable = false),
             inverseJoinColumns = @JoinColumn(name = "patient_id", referencedColumnName = "id", nullable = false, updatable = false))

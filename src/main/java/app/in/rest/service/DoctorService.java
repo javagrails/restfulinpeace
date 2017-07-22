@@ -23,6 +23,8 @@ public interface DoctorService {
 
     List<Doctor> findAll();
 
+    boolean isDoctorExist(Doctor doctor);
+
     // Operations
     @Transactional
     void save(Doctor doctor);

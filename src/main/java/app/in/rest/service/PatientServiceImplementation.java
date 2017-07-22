@@ -1,8 +1,11 @@
 package app.in.rest.service;
 
+import app.in.rest.entity.Doctor;
 import app.in.rest.entity.Patient;
+import app.in.rest.repository.DoctorRepository;
 import app.in.rest.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -15,9 +18,14 @@ import java.util.List;
  * @since Jul 20, 2017 22:54:54 PM
  */
 
+@Service
+@Transactional
 public class PatientServiceImplementation implements PatientService {
     @Autowired
     private PatientRepository patientRepository;
+
+    @Autowired
+    private DoctorPatientService doctorPatientService;
 
     @Override
     public Patient findById(Long id) {
@@ -43,6 +51,11 @@ public class PatientServiceImplementation implements PatientService {
     @Override
     public List<Patient> findAll() {
         return patientRepository.findAll();
+    }
+
+    @Override
+    public boolean isPatientExist(Patient patient) {
+        return findByName(patient.getName()) != null;
     }
 
     @Override
