@@ -38,14 +38,21 @@ public class PatientController {
 
     // ------------------- Retrieve All Patients -------------------------- DONE ----------
     @GetMapping("/patients")
-    public ResponseEntity<List<Patient>> list() {
-        List<Patient> patients = null;
+    public ResponseEntity<List<Patient>> list(@PathVariable("doctorId") Long doctorId) {
+        List<Patient> patients = new ArrayList<Patient>();
         try {
-            patients = patientService.findAll();
-            if (patients.isEmpty()) {
-                // return new ResponseEntity(HttpStatus.NO_CONTENT);
+            //patients = patientService.findAll();
+            Doctor doctor = doctorPatientService.getDoctor(doctorId,false);
+
+            if (doctor != null && doctor.getPatients().size() <= 0) {
                 // You many decide to return HttpStatus.NOT_FOUND
-                return new ResponseEntity(new CustomResponseEntity("Patient list is empty."), HttpStatus.OK);
+                return new ResponseEntity(new CustomResponseEntity("Patient list is empty with Doctor id("+doctorId+") ."), HttpStatus.OK);
+            }
+
+            patients.addAll(doctor.getPatients());
+
+            if (patients.isEmpty()) {
+                return new ResponseEntity(new CustomResponseEntity("Patient list is empty with Doctor id("+doctorId+") ."), HttpStatus.OK);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,7 +65,7 @@ public class PatientController {
 
     // ------------------- Retrieve Single Patient ------------------------ DONE ----------
     @GetMapping("/patients/{id}")
-    public ResponseEntity<?> single(@PathVariable("id") Long id) {
+    public ResponseEntity<?> single(@PathVariable("doctorId") Long doctorId, @PathVariable("id") Long id) {
         log.info("Fetching Patient with id {}", id);
 
         Patient patient = patientService.findById(id);
