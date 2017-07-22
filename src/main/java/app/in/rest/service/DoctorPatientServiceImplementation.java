@@ -30,8 +30,11 @@ public class DoctorPatientServiceImplementation implements DoctorPatientService 
 
 
     @Override
-    public Doctor getDoctor(Long doctorId) {
-        return this.buildDoctorFromDbDoctor(doctorRepository.findOne(doctorId));
+    public Doctor getDoctor(Long doctorId, boolean isBuild) {
+        if(isBuild){
+            return this.buildDoctorFromDbDoctor(doctorRepository.findOne(doctorId));
+        }
+        return doctorRepository.findOne(doctorId);
     }
 
     @Override
@@ -54,7 +57,7 @@ public class DoctorPatientServiceImplementation implements DoctorPatientService 
     public void savePatientWithDoctor(Long doctorId, Patient patientIn) {
         patientRepository.save(patientIn);
         Patient patient = this.buildPatientFromDbPatient(patientIn);
-        Doctor doctor   = this.getDoctor(doctorId);
+        Doctor doctor   = this.getDoctor(doctorId,true);
         doctor.getPatients().add(patient);
         this.saveDoctor(doctor);
     }
