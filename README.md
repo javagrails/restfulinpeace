@@ -5,6 +5,7 @@ REST api Example Using SpringBoot Version = '1.5.4.RELEASE', MySql, swagger-ui, 
 <br/> After run the application just enter [**http://localhost:8080/swagger-ui.html**](http://localhost:8080/swagger-ui.html) in browser address, you will get all resources documentation and test interface by the help of swagger-ui, swagger2
  
 ![Resources](https://github.com/javagrails/restfulinpeace/blob/master/docs/resources-structure.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjavagrails%2Frestfulinpeace.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjavagrails%2Frestfulinpeace?ref=badge_shield)
 
 
 
@@ -86,3 +87,7 @@ Body Content JSON
 // this patient is tagged with Doctor having id 1 seen from url
 ```
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjavagrails%2Frestfulinpeace.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjavagrails%2Frestfulinpeace?ref=badge_large)
