@@ -4,7 +4,7 @@ REST api Example Using SpringBoot Version = '1.5.4.RELEASE', MySql, swagger-ui, 
 <br/> Then run application you will get every thing (CRUD) ready 
 <br/> After run the application just enter [**http://localhost:8080/swagger-ui.html**](http://localhost:8080/swagger-ui.html) in browser address, you will get all resources documentation and test interface by the help of swagger-ui, swagger2
  
-![Resources](https://github.com/javagrails/restfulinpeace/blob/master/docs/resources-structure.png)
+![Resources](https://github.com/javagrails/restfulinpeace/blob/develop/docs/resources-structure.png)
 
 
 
