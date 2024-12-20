@@ -14,20 +14,20 @@ REST api Example Using SpringBoot Version = '1.5.4.RELEASE', MySql, swagger-ui, 
 | Http Method | Resource URL | Rest Controller Action |
 | ------- | ------- | ------- |
 | GET | http://localhost:8080/doctors | Action: list |
-| GET | http://localhost:8080/doctors/${id} | Action: single |
+| GET | http://localhost:8080/doctors/{id} | Action: single |
 | POST | http://localhost:8080/doctors | Action: save |
-| PUT | http://localhost:8080/doctors/${id} | Action: update |
-| DELETE | http://localhost:8080/doctors/${id} | Action: delete |
+| PUT | http://localhost:8080/doctors/{id} | Action: update |
+| DELETE | http://localhost:8080/doctors/{id} | Action: delete |
 
 #### <i class="icon-file"></i> Controller: patient 
 
 | Http Method | Resource URL | Rest Controller Action |
 | ------- | ------- | ------- |
-| GET | http://localhost:8080/doctors/${doctorId}/patients | Action: list |
-| GET | http://localhost:8080/doctors/${doctorId}/patients/${id} | Action: single |
-| POST | http://localhost:8080/doctors/${doctorId}/patients | Action: save |
-| PUT | http://localhost:8080/doctors/${doctorId}/patients/${id}  | Action: update |
-| DELETE | http://localhost:8080/doctors/${doctorId}/patients/${id}  | Action: delete |
+| GET | http://localhost:8080/doctors/{doctorId}/patients | Action: list |
+| GET | http://localhost:8080/doctors/{doctorId}/patients/{id} | Action: single |
+| POST | http://localhost:8080/doctors/{doctorId}/patients | Action: save |
+| PUT | http://localhost:8080/doctors/{doctorId}/patients/{id}  | Action: update |
+| DELETE | http://localhost:8080/doctors/{doctorId}/patients/{id}  | Action: delete |
 
 
 ### Doctor POST and PUT example
